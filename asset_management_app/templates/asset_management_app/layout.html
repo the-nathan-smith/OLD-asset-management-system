@@ -13,6 +13,17 @@
     <a href="{% url 'log' %}" class="navbar-item">Log Message</a>
     <a href="{% url 'about' %}" class="navbar-item">About</a>
     <a href="{% url 'contact' %}" class="navbar-item">Contact</a>
+
+    <span>
+        {% if user.is_authenticated %}
+            <span class="navbar-item">
+                Hi <a href="{% url 'profile' %}">{{user.username}}</a>
+            </span>
+            <a href="{% url 'logout' %}" class="navbar-item">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="navbar-item">Login</a>
+        {% endif %}
+    </span>
 </div>
 
 <div class="body-content">

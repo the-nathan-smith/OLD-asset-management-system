@@ -7,6 +7,8 @@ import asset_management_app
 from asset_management_app.forms import LogMessageForm
 from asset_management_app.models import LogMessage
 from django.views.generic import ListView
+from django.views.generic.base import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class HomeListView(ListView):
@@ -15,6 +17,10 @@ class HomeListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(HomeListView, self).get_context_data(**kwargs)
         return context
+
+
+class ProflieView(LoginRequiredMixin, TemplateView):
+    template_name = 'asset_management_app/accounts/profile.html'
 
 
 def about(request):
