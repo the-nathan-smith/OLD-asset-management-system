@@ -20,7 +20,7 @@ class HomeListView(ListView):
 
 
 class ProflieView(LoginRequiredMixin, TemplateView):
-    template_name = 'asset_management_app/accounts/profile.html'
+    template_name = "asset_management_app/accounts/profile.html"
 
 
 def about(request):
@@ -34,11 +34,8 @@ def contact(request):
 def hello_there(request, name):
     return render(
         request,
-        'asset_management_app/hello_there.html',
-        {
-            'name': name,
-            'date': datetime.now()
-        }
+        "asset_management_app/hello_there.html",
+        {"name": name, "date": datetime.now()},
     )
 
 
